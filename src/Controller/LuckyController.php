@@ -4,8 +4,9 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class LuckyController
+class LuckyController extends AbstractController
 {
     #[Route("/lucky/number")] // This attribute defines the URL route for this action (method)
     public function number(): Response  // The function's name is "number" and it returns a Response object
@@ -13,10 +14,9 @@ class LuckyController
         // Generate a random number between 0 and 100 (inclusive)
         $number = random_int(0, 100);
 
-        // Create and return an HTML response containing the lucky number
-        return new Response(
-            '<html><body>Lucky number: ' . $number . '</body></html>'
-        );
+        return $this->render('lucky/number.html.twig', [
+            'number' => $number,
+        ]);
     }
 
 
@@ -25,8 +25,8 @@ class LuckyController
     {
         $greeting = "Hello " . ($name ?? "World") . "!"; // Use null coalescing operator
 
-        return new Response(
-            '<html><body><h1>' . $greeting . '</h1></body></html>'
-        );
+        return $this->render('greet/greeting.html.twig', [
+            'greeting' => $greeting,
+        ]);
     }
 }
