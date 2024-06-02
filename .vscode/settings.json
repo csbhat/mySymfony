@@ -1,0 +1,4 @@
+{
+    "drupal.phpcs.enabled": false,
+    "drupal.phpcbf.enabled": false
+}

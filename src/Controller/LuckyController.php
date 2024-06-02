@@ -17,7 +17,7 @@ class LuckyController extends AbstractController // Extend the base controller c
 
         // Render the 'lucky/number.html.twig' template, passing the 'number' variable
         return $this->render('lucky/number.html.twig', [
-            'number' => $number, 
+            'number' => $number,
         ]);
     }
 
@@ -25,11 +25,11 @@ class LuckyController extends AbstractController // Extend the base controller c
     public function greet(?string $name): Response // Action method, accepts optional 'name' parameter
     {
         // Create a greeting message using the provided name or the default "World"
-        $greeting = "Hello " . ($name ?? "World") . "!";  
+        $greeting = "Hello " . ($name ?? "World") . "!";
 
         // Render the 'greet/greeting.html.twig' template, passing the 'greeting' variable
         return $this->render('greet/greeting.html.twig', [
-            'greeting' => $greeting, 
+            'greeting' => $greeting,
         ]);
     }
 }

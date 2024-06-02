@@ -1,0 +1,13 @@
+# config/routes/attributes.yaml
+
+# config/routes/attributes.yaml
+controllers:
+  resource:
+    path: ../../src/Controller/ # Path to the directory containing your controllers
+    namespace: App\Controller # Namespace of your controllers (typically App\Controller)
+  type: attribute Indicates that routes will be defined using attributes in the controller classes
+
+# Configuration for loading the application kernel, which is responsible for bootstrapping the application
+kernel:
+  resource: App\Kernel # Path to your Kernel class (typically App\Kernel)
+  type: attribute # Indicates that the kernel is configured using attributes
