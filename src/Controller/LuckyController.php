@@ -1,32 +1,35 @@
 <?php
 // src/Controller/LuckyController.php
-namespace App\Controller;
 
+namespace App\Controller;  // Define the namespace for this controller class
+
+// Import necessary classes from Symfony components
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class LuckyController extends AbstractController
+class LuckyController extends AbstractController // Extend the base controller class
 {
-    #[Route("/lucky/number")] // This attribute defines the URL route for this action (method)
-    public function number(): Response  // The function's name is "number" and it returns a Response object
+    #[Route("/lucky/number")] // Define the route for the 'number' action
+    public function number(): Response  // Action method that returns a Response object
     {
-        // Generate a random number between 0 and 100 (inclusive)
-        $number = random_int(0, 100);
+        $number = random_int(0, 100); // Generate a random number between 0 and 100
 
+        // Render the 'lucky/number.html.twig' template, passing the 'number' variable
         return $this->render('lucky/number.html.twig', [
-            'number' => $number,
+            'number' => $number, 
         ]);
     }
 
-
-    #[Route("/hello/{name}", defaults: ["name" => "World"])] // Default name if none is given
-    public function greet(?string $name): Response
+    #[Route("/hello/{name}", defaults: ["name" => "World"])] // Route for the 'greet' action with default 'name'
+    public function greet(?string $name): Response // Action method, accepts optional 'name' parameter
     {
-        $greeting = "Hello " . ($name ?? "World") . "!"; // Use null coalescing operator
+        // Create a greeting message using the provided name or the default "World"
+        $greeting = "Hello " . ($name ?? "World") . "!";  
 
+        // Render the 'greet/greeting.html.twig' template, passing the 'greeting' variable
         return $this->render('greet/greeting.html.twig', [
-            'greeting' => $greeting,
+            'greeting' => $greeting, 
         ]);
     }
 }
